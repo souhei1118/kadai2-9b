@@ -1,7 +1,7 @@
 <table class="table table-hover table-inverse">
   <!--検索対象モデルがUserの時 -->
   <% if @range == "User" %>
-  <h2>Users search for "<% @users %>"</h2>
+  <h2>Users search for "<%= @word %>"</h2>
     <thead>
     <tr>
       <th>image</th>
@@ -26,7 +26,7 @@
       <% end %>
     </tbody>
   <% else %>
-  <h2>Books search for "<% @books %>" </h2>
+  <h2>Books search for "<%= @word %>" </h2>
     <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
     <thead>
       <tr>
