@@ -11,8 +11,9 @@
   <body>
     <%= render 'layouts/header' %>
       <main>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <div id="flash-message">
+          <%= render 'layouts/flash' %>
+        </div>
         <%= yield %>
       </main>
     <%= render 'layouts/footer' %>
