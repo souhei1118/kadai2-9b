@@ -8,7 +8,7 @@ class Book < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-  
+
   def self.looks(search, word)
     if search == "perfect_match"
       @book = Book.where("title LIKE?","#{word}")
@@ -22,4 +22,9 @@ class Book < ApplicationRecord
       @book = Book.all
     end
   end
+
+  scope :created_today, -> { where(created_at: Time.current.all_day) } # 今日
+  scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) } # 前日
+  scope :created_this_week, -> { where(created_at: Time.current.all_week) }
+  scope :created_last_week, -> { where(created_at: Time.current.last_week.all_week) }
 end
