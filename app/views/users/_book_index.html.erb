@@ -65,13 +65,13 @@
       </thead>
       <tbody>
         <tr>
-          <th><%=  @created_6day_ago.count %></th>
-          <th><%=  @created_5day_ago.count %></th>
-          <th><%=  @created_4day_ago.count %></th>
-          <th><%=  @created_3day_ago.count %></th>
-          <th><%=  @created_2day_ago.count %></th>
-          <th><%=  @created_1day_ago.count %></th>
-          <th><%=  @today_book.count %></th>
+          <th><%=  @books.created_6day_ago.count %></th>
+          <th><%=  @books.created_5day_ago.count %></th>
+          <th><%=  @books.created_4day_ago.count %></th>
+          <th><%=  @books.created_3day_ago.count %></th>
+          <th><%=  @books.created_2day_ago.count %></th>
+          <th><%=  @books.created_1day_ago.count %></th>
+          <th><%= @books.created_today.count %></th>
         </tr>
       </tbody>
     </table>
