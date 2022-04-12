@@ -1,17 +1,20 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update,]
+  impressionist :actions=> [:show, :index]
 
   def show
     @book = Book.find(params[:id])
     @user = @book.user
     @books = Book.new
     @book_comment =  BookComment.new
+    impressionist(@book, nil, unique: [:ip_address])
   end
 
   def index
     @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
     @book = Book.new
+    @rank_books = Book.order(impressions_count: 'DESC') # ソート機能を追加
   end
 
   def create
