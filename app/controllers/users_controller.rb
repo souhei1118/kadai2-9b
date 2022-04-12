@@ -40,10 +40,10 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = Book.new
     if params[:created_at] == ""
-      @search_book = "日付を選択してください"#①
+      @search_book = "日付を選択してください"
     else
       create_at = params[:created_at]
-      @search_book = @books.where(['created_at LIKE ? ', "#{create_at}%"]).count#②
+      @search_book = @books.where(['created_at LIKE ? ', "#{create_at}%"]).count
     end
   end
 
